@@ -5,7 +5,7 @@
     :class="[classList.navInner, classList.bgInner]"
   >
     <div class="container">
-      <router-link to="home" class="navbar-brand">Shoes Story</router-link>
+      <router-link to="/" class="navbar-brand">Shoes Story</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-lg-0">
           <li class="nav-item my-auto">
-            <router-link to="home" class="nav-link" aria-current="page">Home</router-link>
+            <router-link to="/" class="nav-link" aria-current="page">Home</router-link>
           </li>
           <li class="nav-item my-auto">
             <router-link to="products" class="nav-link" aria-current="page">Products</router-link>
@@ -47,25 +47,6 @@ export default {
         bgInner: '',
       },
     };
-  },
-
-  mounted() {
-    window.addEventListener('scroll', () => {
-      const windowY = window.scrollY;
-      const main = document.querySelector('#main');
-      const navbarTop = document.querySelector('#navbarTop');
-      if (windowY > main.offsetTop - navbarTop.offsetHeight) {
-        this.classList = {
-          navInner: 'navbar-dark',
-          bgInner: 'bg-dark',
-        };
-      } else {
-        this.classList = {
-          navInner: 'navbar-light',
-          bgInner: 'bg-light',
-        };
-      }
-    });
   },
 };
 </script>

@@ -6,11 +6,15 @@ import AOS from 'aos';
 import '../node_modules/aos/dist/aos.css';
 import '../node_modules/animate.css/animate.css';
 import '../node_modules/bootstrap/dist/js/bootstrap';
+import VueLoading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 import App from './App.vue';
 import router from './router';
 
 const app = createApp(App);
 app.use(router);
+app.use(VueLoading);
 app.use(VueSweetalert2);
 app.use(VueAxios, axios);
 app.use(AOS);
