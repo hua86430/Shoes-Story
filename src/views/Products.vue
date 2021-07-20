@@ -78,9 +78,12 @@
                 </div>
 
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-outline-secondary px-5">
-                    產品介紹
-                  </button>
+                  <router-link :to="`/product/${item.id}`"
+                    ><button type="button" class="btn btn-outline-secondary px-5">
+                      產品介紹
+                    </button></router-link
+                  >
+
                   <button type="button" class="btn btn-outline-secondary px-5">
                     加入購物車
                   </button>
@@ -132,14 +135,11 @@
 </template>
 
 <script>
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
 import Pagination from '../components/Pagination.vue';
 
 export default {
   components: {
     Pagination,
-    Loading,
   },
   data() {
     return {

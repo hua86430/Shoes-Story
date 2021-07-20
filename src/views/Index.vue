@@ -1,9 +1,5 @@
 <template>
-  <nav
-    id="navbarTop"
-    class="navbar navbar-expand-lg navbar-light bg-light sticky-top py-2"
-    :class="[classList.navInner, classList.bgInner]"
-  >
+  <nav id="navbarTop" class="navbar navbar-expand-lg navbar-light bg-light sticky-top py-2">
     <div class="container">
       <router-link to="/" class="navbar-brand">Shoes Story</router-link>
       <button
@@ -23,7 +19,12 @@
             <router-link to="/" class="nav-link" aria-current="page">Home</router-link>
           </li>
           <li class="nav-item my-auto">
-            <router-link to="products" class="nav-link" aria-current="page">Products</router-link>
+            <router-link to="/products" class="nav-link" aria-current="page">Products</router-link>
+          </li>
+          <li class="nav-item my-auto">
+            <button @click="login" type="button" class="btn nav-link" aria-current="page">
+              DashBoard
+            </button>
           </li>
           <li class="nav-item ms-3">
             <router-link to="carts" class="nav-link" aria-current="page"
@@ -42,11 +43,25 @@
 export default {
   data() {
     return {
-      classList: {
-        navInner: '',
-        bgInner: '',
-      },
+      loginCheck: false,
     };
+  },
+  methods: {
+    login() {
+      this.$http.post(`${process.env.VUE_APP_API}api/user/check`).then((res) => {
+        if (res.data.success) {
+          this.$router.push('/dashboard');
+          console.log('yes', res.data.success);
+        } else {
+          this.$router.push('/login');
+          console.log(res.data.success);
+        }
+      });
+    },
+  },
+  created() {
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)huaToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    this.$http.defaults.headers.common.Authorization = token;
   },
 };
 </script>
