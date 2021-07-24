@@ -27,7 +27,7 @@
             </button>
           </li>
           <li class="nav-item ms-3">
-            <router-link to="carts" class="nav-link" aria-current="page"
+            <router-link to="/carts" class="nav-link" aria-current="page"
               ><i class="bi bi-cart3" style="font-size:2em"></i>
               <span>➠</span>
             </router-link>

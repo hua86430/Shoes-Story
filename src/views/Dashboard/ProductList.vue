@@ -20,7 +20,7 @@
           <th width="100">
             是否啟用
           </th>
-          <th width="100"></th>
+          <th width="150"></th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +35,12 @@
           <td>
             <div class="btn-group">
               <button
+                @click="openModal('instock', item)"
+                type="button"
+                class="btn btn-outline-info btn-sm"
+              >
+                查看庫存</button
+              ><button
                 @click="openModal('edit', item)"
                 type="button"
                 class="btn btn-outline-primary btn-sm"
@@ -59,18 +65,21 @@
   </div>
   <ProductModal @refresh="getProducts" ref="modal"></ProductModal>
   <DeleteModal @deldata="getProducts" ref="deleteModal"></DeleteModal>
+  <InstockModal @instockModal="getProducts" ref="instockModal"></InstockModal>
 </template>
 
 <script>
 import Pagination from '../../components/Pagination.vue';
 import ProductModal from '../../components/ProductModal.vue';
 import DeleteModal from '../../components/DeleteModal.vue';
+import InstockModal from '../../components/Instock.vue';
 
 export default {
   components: {
     Pagination,
     ProductModal,
     DeleteModal,
+    InstockModal,
   },
   data() {
     return {
@@ -109,6 +118,10 @@ export default {
         };
         this.$refs.modal.productObj.size.push({});
         this.$refs.modal.buttomStatus = '新增';
+      } else if (status === 'instock') {
+        this.$refs.instockModal.modal.show();
+        this.$refs.modal.productObj.size.push({});
+        this.$refs.instockModal.productObj = { ...item };
       } else if (status === 'delete') {
         this.$refs.deleteModal.modal.show();
         this.$refs.deleteModal.productObj = { imagesUrl: [], ...item };

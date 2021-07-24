@@ -7,7 +7,7 @@
     aria-labelledby="productModalLabel"
     aria-hidden="true"
   >
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content border-0">
         <div class="modal-header bg-dark text-white">
           <h5 id="productModalLabel" class="modal-title">
@@ -145,8 +145,8 @@
                   v-model.trim="productObj.content"
                 ></textarea>
               </div>
-              <table class="table">
-                <thead>
+              <table class="table mt-3">
+                <thead class="align-middle">
                   <tr>
                     <th scope="col">尺寸</th>
                     <th scope="col">數量</th>
@@ -157,7 +157,7 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle">
                   <tr v-for="(item, index) in productObj.size" :key="index">
                     <td>
                       <input
@@ -174,30 +174,14 @@
                         v-model.trim="productObj.size[index].sizeQty"
                       />
                     </td>
-                    <td></td>
+                    <td>
+                      <button type="button" class="btn" @click="delSize(index)">
+                        <i class="bi bi-trash-fill"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
-              <!-- <div class="form-group">
-                <label for="description">尺寸</label>
-                <textarea
-                  id="description"
-                  type="text"
-                  class="form-control"
-                  placeholder="請輸入產品描述"
-                  v-model.trim="productObj.size[0].sizeNum"
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="description">數量</label>
-                <textarea
-                  id="description"
-                  type="text"
-                  class="form-control"
-                  placeholder="請輸入產品描述"
-                  v-model.trim="productObj.size[0].sizeQty"
-                ></textarea>
-              </div>-->
               <div class="form-group">
                 <div class="form-check">
                   <input
@@ -216,10 +200,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-            取消
+            Close
           </button>
           <button @click="updateProduct" type="button" class="btn btn-primary">
-            確認
+            Update
           </button>
         </div>
       </div>
@@ -242,9 +226,12 @@ export default {
     };
   },
   methods: {
+    delSize(index) {
+      this.productObj.size.splice(index, 1);
+    },
     addSize() {
-      if (this.productObj.size === '') {
-        this.productObj.size = [];
+      if (this.productObj.size.length === 0) {
+        this.productObj.size.push({});
       }
       if (Object.keys(this.productObj.size[this.productObj.size.length - 1]).length !== 0) {
         this.productObj.size.push({});
@@ -269,7 +256,6 @@ export default {
         this.productObj.imagesUrl = [];
       }
       if (this.productObj.imagesUrl[this.productObj.imagesUrl.length - 1] !== '') {
-        console.log('yes');
         this.productObj.imagesUrl.push('');
       }
     },

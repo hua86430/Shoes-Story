@@ -25,34 +25,42 @@
           </ol>
         </nav>
         <h1 class="mt-3 mb-5 border-bottom pb-3 text-start">Product Introduction</h1>
-        <p>{{ product.content }}</p>
-        <div v-for="item in product.imagesUrl" :key="item.id">
-          <img class="w-100 mb-5" :src="item" alt="" />
+        <div tabindex="0" style="overflow-y: scroll; height:80vh">
+          <p>{{ product.content }}</p>
+          <div v-for="item in product.imagesUrl" :key="item.id">
+            <img class="w-100 mb-5" :src="item" alt="" />
+          </div>
         </div>
       </div>
       <!-- Left -->
       <!-- Right -->
-      <div class="col-lg-3 position-relative">
+      <div class="col-lg-3">
         <div class="card mt-5">
           <div class="card-body">
             <img :src="product.imageUrl" class="card-img-top" alt="..." />
 
-            <h6 class="text-muted fw-lighter">商品編號：{{ product.id }}</h6>
+            <h6 class="text-muted fw-lighter mt-1">商品編號：{{ product.id }}</h6>
             <h2>{{ product.title }}</h2>
             <h4 class="card-text">售價：{{ product.price }}</h4>
             <div class="row">
               <div class="col">
                 <div class="d-flex mb-3">
                   <span class="my-auto">尺寸：</span>
-                  <div>
-                    <input
-                      type="radio"
-                      class="btn-check"
-                      name="btnradio"
-                      id="btnradio1"
-                      autocomplete="off"
-                    />
-                    <label class="btn btn-outline-primary" for="btnradio1">23.5</label>
+                  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <div v-for="(item, index) in product.size" :key="index" class="mx-1">
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="btnradio"
+                        :id="index"
+                        autocomplete="off"
+                        @click="checkInstock(item), sizeTemp(item.sizeNum)"
+                        :disabled="item.sizeQty <= 0"
+                      />
+                      <label class="btn btn-outline-secondary" :for="index">{{
+                        item.sizeNum
+                      }}</label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -61,7 +69,7 @@
                 <div class="col">
                   <div class="d-flex mb-3">
                     <span class="my-auto">庫存：</span>
-                    <span>5</span>
+                    <span class="text-muted">{{ instockQty.sizeQty }}</span>
                   </div>
                 </div>
               </div>
@@ -70,30 +78,35 @@
             <div>
               <div class="input-group mb-3">
                 <span class="my-auto">數量：</span>
-                <button class="btn btn-outline-secondary" type="button">
+                <button
+                  :disabled="qty <= 1"
+                  @click="addQtyBtn('down')"
+                  class="btn btn-outline-secondary"
+                  type="button"
+                >
                   -
                 </button>
-                <input type="number" class="form-control text-center" min="1" :value="qty" />
+                <input
+                  type="number"
+                  class="form-control text-center"
+                  v-model.number="qty"
+                  min="1"
+                />
 
-                <button class="btn btn-outline-secondary" type="button">
+                <button @click="addQtyBtn('up')" class="btn btn-outline-secondary" type="button">
                   +
                 </button>
               </div>
-              <button type="button" class="btn btn-primary w-100">
+              <button
+                @click="addCart(product.id, sizeTempNum, qty)"
+                type="button"
+                class="btn btn-secondary w-100"
+              >
                 加入購物車
               </button>
             </div>
           </div>
         </div>
-        <button
-          v-if="upbutton"
-          @click="backTop"
-          type="button"
-          class="btn btn-secondary position-absolute mb-3"
-          style="bottom:0;right:0;"
-        >
-          <i class="bi bi-arrow-bar-up"></i>
-        </button>
       </div>
 
       <!-- Right -->
@@ -139,28 +152,88 @@ export default {
       product: {},
       id: this.$route.params.id,
       isLoading: false,
+      instockQty: {},
       qty: 1,
-      upbutton: true,
+      sizeTempNum: '',
+      sizeObj: '',
+      itemData: {
+        product_id: '',
+        size: [],
+        qty: 1,
+      },
+      cartTemp: '',
     };
   },
   methods: {
-    backTop() {
-      window.scrollTo(0, 0);
+    getProduct() {
+      this.$http
+        .get(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`)
+        .then((res) => {
+          this.isLoading = false;
+          this.product = res.data.product;
+          this.product.price = res.data.product.price.toLocaleString();
+          this.getThisId();
+        });
     },
+    getThisId() {
+      this.$http
+        .get(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`)
+        .then((res) => {
+          this.cartTemp = res.data.data.carts.filter((item) => item.product_id === this.product.id);
+          if (this.cartTemp.length > 0) {
+            this.itemData.size = this.cartTemp[0].size;
+          }
+        });
+    },
+    addQtyBtn(status) {
+      if (status === 'up') {
+        this.qty += 1;
+      } else {
+        this.qty -= 1;
+      }
+    },
+    checkInstock(item) {
+      this.instockQty = item;
+    },
+    sizeTemp(item) {
+      this.sizeTempNum = item;
+    },
+    /* eslint-disable no-param-reassign */
+    addCart(id, num, qty) {
+      if (num !== '') {
+        this.itemData.qty = 0;
+        this.itemData.qty += qty;
+        this.itemData.product_id = id;
+        if (this.itemData.size.length > 0) {
+          this.sizeObj = this.itemData.size.filter((item) => item.num === num);
+          if (this.sizeObj.length > 0) {
+            this.sizeObj[0].qty += qty;
+          } else {
+            this.itemData.size.push({ num, qty });
+          }
+        } else {
+          this.itemData.size.push({ num, qty });
+        }
+
+        this.$http
+          .post(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`, {
+            data: this.itemData,
+          })
+          .then((res) => {
+            this.$swal(res.data.message);
+          });
+      } else {
+        this.$swal({
+          icon: 'warning',
+          text: '請選擇尺寸',
+        });
+      }
+    },
+    /* eslint-enable no-param-reassign */
   },
   created() {
     this.isLoading = true;
-    this.$http
-      .get(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`)
-      .then((res) => {
-        this.isLoading = false;
-        this.product = res.data.product;
-        this.product.price = res.data.product.price.toLocaleString();
-        console.log(this.product);
-      });
-    if (document.body.offsetWidth < 960) {
-      this.upbutton = false;
-    }
+    this.getProduct();
   },
 };
 </script>
