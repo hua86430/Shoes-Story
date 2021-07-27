@@ -173,6 +173,7 @@ export default {
     cartCheck(item) {
       this.$refs.cartCheck.modal.show();
       this.$refs.cartCheck.productObj = item;
+      console.log(this.$refs.cartCheck.productObj);
     },
     deleteItem(id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;

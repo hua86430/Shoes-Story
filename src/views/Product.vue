@@ -45,32 +45,40 @@
             <div class="row">
               <div class="col">
                 <div class="d-flex mb-3">
-                  <span class="my-auto">尺寸：</span>
-                  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <div v-for="(item, index) in product.size" :key="index" class="mx-1">
-                      <input
-                        type="radio"
-                        class="btn-check"
-                        name="btnradio"
-                        :id="index"
-                        autocomplete="off"
-                        @click="checkInstock(item), sizeTemp(item.sizeNum)"
-                        :disabled="item.sizeQty <= 0"
-                      />
-                      <label class="btn btn-outline-secondary" :for="index">{{
-                        item.sizeNum
-                      }}</label>
+                  <div class="col-2 text-start">
+                    <span class="my-auto">尺寸：</span>
+                  </div>
+                  <div class="col-10">
+                    <div
+                      class="btn-group"
+                      role="group"
+                      style="flex-wrap: wrap;"
+                      aria-label="Basic radio toggle button group"
+                    >
+                      <div v-for="(item, index) in product.size" :key="index" class="mx-1 mb-2">
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="btnradio"
+                          :id="index"
+                          autocomplete="off"
+                          @click="checkInstock(item), sizeTemp(item.sizeNum)"
+                          :disabled="item.sizeQty <= 0"
+                        />
+                        <label class="btn btn-outline-secondary" :for="index">{{
+                          item.sizeNum
+                        }}</label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="row">
-                <div class="col">
-                  <div class="d-flex mb-3">
-                    <span class="my-auto">庫存：</span>
-                    <span class="text-muted">{{ instockQty.sizeQty }}</span>
-                  </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="d-flex mb-3">
+                  <span class="my-auto">庫存：</span>
+                  <span class="text-muted">{{ instockQty.sizeQty }}</span>
                 </div>
               </div>
             </div>

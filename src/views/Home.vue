@@ -37,18 +37,14 @@
   </div>
 
   <!-- content -->
-  <div class="position-relative" id="main">
+  <div class="position-relative" style="max-width:100%" id="main">
     <div id="bg" class="position-absolute" style="top:0; bottom:0; left:0; right:0;"></div>
     <div class="container">
-      <div
-        class="row justify-content-end align-items-center"
-        data-aos="fade-right"
-        data-aos-delay="100"
-      >
-        <div class="col-md-5 mt-5 mb-3">
-          <img style="width:90%" src="../assets/picture/idea.jpeg" alt="" />
+      <div class="row justify-content-end align-items-center">
+        <div class="col-md-5 mt-5 mb-3" data-aos="fade-right" data-aos-delay="100">
+          <img style="max-width:90%" src="../assets/picture/idea.jpeg" alt="" />
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
           <h2 class="mb-3">品牌理念</h2>
           <span
             >我們是一群潮鞋愛好者，對於各式各樣的鞋款有莫名的熱情，卻時常在尋找的途中處處碰壁<br />
@@ -56,31 +52,22 @@
           >
         </div>
       </div>
-      <div
-        class="row justify-content-start align-items-center"
-        data-aos="fade-left"
-        data-aos-delay="200"
-      >
-        <div class="col-md-5 order-md-last  mt-5 mb-3">
-          <img style="width:90%" src="../assets/picture/choose-us.jpeg" alt="" />
+      <div class="row justify-content-start align-items-center">
+        <div class="col-md-5 order-md-last  mt-5 mb-3" data-aos="fade-left" data-aos-delay="200">
+          <img style="max-width:90%" src="../assets/picture/choose-us.jpeg" alt="" />
         </div>
-        <div class="col-md-6 order-md-first">
+        <div class="col-md-6 order-md-first" data-aos="fade-left" data-aos-delay="200">
           <h2 class="mb-3">為何選擇我們？</h2>
           <span
             >我們擁有最多、最齊全且最熱門的鞋款，<br />讓您在尋找心目中的鞋款時不需要東奔西跑，在這裡有各式各樣的品牌供您挑選，讓您買的愉快、穿得舒適。</span
           >
         </div>
       </div>
-      <div
-        id="main"
-        class="row justify-content-end align-items-center mt-5"
-        data-aos="fade-right"
-        data-aos-delay="300"
-      >
-        <div class="col-md-5 mt-5 mb-3">
-          <img style="width:90%" src="../assets/picture/after-sale.jpeg" alt="" />
+      <div class="row justify-content-end align-items-center mt-5">
+        <div class="col-md-5 mt-5 mb-3" data-aos="fade-right" data-aos-delay="300">
+          <img style="max-width:90%" src="../assets/picture/after-sale.jpeg" alt="" />
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
           <h2 class="mb-3">最完善的售後服務</h2>
           <span
             >只要在本店購買的鞋款，不管有任何問題，<br />如：外觀瑕疵、尺寸不符...，等相關問題都可以尋求我們為您協助處理相關事宜，<br />且每雙鞋款擁有七天鑑賞期，
@@ -88,15 +75,11 @@
           >
         </div>
       </div>
-      <div
-        class="row justify-content-start align-items-center"
-        data-aos="fade-left"
-        data-aos-delay="300"
-      >
-        <div class="col-md-5 order-md-last my-5">
-          <img style="width:90%" src="../assets/picture/pay_methods.jpeg" alt="" />
+      <div class="row justify-content-start align-items-center">
+        <div class="col-md-5 order-md-last my-5" data-aos="fade-left" data-aos-delay="300">
+          <img style="max-width:90%" src="../assets/picture/pay_methods.jpeg" alt="" />
         </div>
-        <div class="col-md-6 order-md-first">
+        <div class="col-md-6 order-md-first" data-aos="fade-left" data-aos-delay="300">
           <h2 class="mb-3">多元化付款方式</h2>
           <span
             >網路逐漸成長，付款方式也跟著進步，我們也不例外。<br />本店提供了 Apple Pay , Line Pay ,
