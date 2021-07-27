@@ -45,12 +45,12 @@
             <div class="row">
               <div class="col">
                 <div class="d-flex mb-3">
-                  <div class="col-2 text-start">
+                  <div class="col-2 text-start my-auto">
                     <span class="my-auto">尺寸：</span>
                   </div>
-                  <div class="col-10">
+                  <div class="col-10 text-start">
                     <div
-                      class="btn-group"
+                      class="btn-group  my-auto"
                       role="group"
                       style="flex-wrap: wrap;"
                       aria-label="Basic radio toggle button group"
