@@ -22,6 +22,9 @@
             <router-link to="/products" class="nav-link" aria-current="page">Products</router-link>
           </li>
           <li class="nav-item my-auto">
+            <router-link to="/about" class="nav-link" aria-current="page">About</router-link>
+          </li>
+          <li class="nav-item my-auto">
             <button @click="login" type="button" class="btn nav-link" aria-current="page">
               DashBoard
             </button>
