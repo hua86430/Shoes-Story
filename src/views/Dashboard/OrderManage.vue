@@ -28,20 +28,24 @@
             {{ item.message }}
           </td>
           <td>{{ item.is_paid ? '已付款' : '未付款' }}</td>
-          <td><button class="btn btn-outline-info" @click="openModal(item)">修改訂單</button></td>
+          <td>
+            <button type="button" class="btn btn-outline-info" @click="openModal(item)">
+              修改訂單
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="d-flex justify-content-center mt-5">
-    <pagination :page="pagination" @page-change="getOrderList"></pagination>
+    <Pagination :page="pagination" @page-change="getOrderList"></Pagination>
   </div>
   <EditOrder ref="editModal" @reget="getOrderList"></EditOrder>
 </template>
 
 <script>
-import Pagination from '../../components/Pagination.vue';
-import EditOrder from '../../components/EditOrder.vue';
+import Pagination from '@/components/Pagination.vue';
+import EditOrder from '@/components/EditOrder.vue';
 
 export default {
   data() {
@@ -64,7 +68,7 @@ export default {
     openModal(item) {
       this.$refs.editModal.modal.show();
       this.$refs.editModal.orderObj = { ...item };
-      this.$refs.editModal.unix = `${new Date(item.create_at).toLocaleDateString(
+      this.$refs.editModal.unix = `${new Date(item.create_at * 1000).toLocaleDateString(
         'zh-TW',
       )}  ${new Date(item.create_at).toLocaleTimeString('zh-TW')}`;
       if (this.$refs.editModal.orderObj.payment_method === 'bank_transfer') {

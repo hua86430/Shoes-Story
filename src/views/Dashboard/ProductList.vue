@@ -2,7 +2,9 @@
   <h1 class="mt-3 mb-3">產品總覽</h1>
   <div class="container">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button @click="openModal('add', item)" class="btn btn-lg btn-primary">新增產品</button>
+      <button type="button" @click="openModal('add', item)" class="btn btn-lg btn-primary">
+        新增產品
+      </button>
     </div>
     <table class="table table-hover align-middle mt-4">
       <thead>
@@ -61,7 +63,7 @@
     </table>
   </div>
   <div class="d-flex justify-content-center mt-5">
-    <pagination :page="pagination" @page-change="getProducts"></pagination>
+    <Pagination :page="pagination" @page-change="getProducts"></Pagination>
   </div>
   <ProductModal @refresh="getProducts" ref="modal"></ProductModal>
   <DeleteModal @deldata="getProducts" ref="deleteModal"></DeleteModal>
@@ -69,10 +71,10 @@
 </template>
 
 <script>
-import Pagination from '../../components/Pagination.vue';
-import ProductModal from '../../components/ProductModal.vue';
-import DeleteModal from '../../components/DeleteModal.vue';
-import InstockModal from '../../components/Instock.vue';
+import Pagination from '@/components/Pagination.vue';
+import ProductModal from '@/components/ProductModal.vue';
+import DeleteModal from '@/components/DeleteModal.vue';
+import InstockModal from '@/components/Instock.vue';
 
 export default {
   components: {

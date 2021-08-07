@@ -145,7 +145,7 @@
 </template>
 
 <script>
-import CartItemCheck from '../components/CartItemCheck.vue';
+import CartItemCheck from '@/components/CartItemCheck.vue';
 
 export default {
   components: {

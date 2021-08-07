@@ -42,7 +42,7 @@
     <div class="container">
       <div class="row justify-content-end align-items-center">
         <div class="col-md-5 mt-5 mb-3" data-aos="fade-right" data-aos-delay="100">
-          <img style="max-width:90%" src="../assets/picture/idea.jpeg" alt="" />
+          <img style="max-width:90%" src="../assets/picture/idea.jpeg" alt="idea" />
         </div>
         <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
           <h2 class="mb-3">品牌理念</h2>
@@ -54,7 +54,7 @@
       </div>
       <div class="row justify-content-start align-items-center">
         <div class="col-md-5 order-md-last  mt-5 mb-3" data-aos="fade-left" data-aos-delay="200">
-          <img style="max-width:90%" src="../assets/picture/choose-us.jpeg" alt="" />
+          <img style="max-width:90%" src="../assets/picture/choose-us.jpeg" alt="choose-us" />
         </div>
         <div class="col-md-6 order-md-first" data-aos="fade-left" data-aos-delay="200">
           <h2 class="mb-3">為何選擇我們？</h2>
@@ -65,7 +65,7 @@
       </div>
       <div class="row justify-content-end align-items-center mt-5">
         <div class="col-md-5 mt-5 mb-3" data-aos="fade-right" data-aos-delay="300">
-          <img style="max-width:90%" src="../assets/picture/after-sale.jpeg" alt="" />
+          <img style="max-width:90%" src="../assets/picture/after-sale.jpeg" alt="after-sale" />
         </div>
         <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
           <h2 class="mb-3">最完善的售後服務</h2>
@@ -77,7 +77,7 @@
       </div>
       <div class="row justify-content-start align-items-center">
         <div class="col-md-5 order-md-last my-5" data-aos="fade-left" data-aos-delay="300">
-          <img style="max-width:90%" src="../assets/picture/pay_methods.jpeg" alt="" />
+          <img style="max-width:90%" src="../assets/picture/pay_methods.jpeg" alt="pay_methods" />
         </div>
         <div class="col-md-6 order-md-first" data-aos="fade-left" data-aos-delay="300">
           <h2 class="mb-3">多元化付款方式</h2>

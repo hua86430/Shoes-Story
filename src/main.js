@@ -3,9 +3,9 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueSweetalert2 from 'vue-sweetalert2';
 import AOS from 'aos';
-import '../node_modules/aos/dist/aos.css';
-import '../node_modules/animate.css/animate.css';
-import '../node_modules/bootstrap/dist/js/bootstrap';
+import 'aos/dist/aos.css';
+import 'animate.css/animate.css';
+import 'bootstrap/dist/js/bootstrap';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 

@@ -47,7 +47,7 @@
             id="btnradio2"
             autocomplete="off"
           />
-          <label class="btn-list border-0 btn btn-outline-secondary  py-3" for="btnradio2"
+          <label class="btn-list border-0 btn btn-outline-secondary py-3" for="btnradio2"
             >慢跑鞋</label
           >
 
@@ -73,7 +73,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
                 <div class="card-body">
-                  <img class="w-100" :src="item.imageUrl" alt="" />
+                  <img class="w-100" :src="item.imageUrl" alt="{{item.id}}" />
                   <h3 class="mt-3">售價：{{ item.price.toLocaleString() }}</h3>
                 </div>
 
@@ -94,7 +94,7 @@
           <!-- Products -->
           <!-- Pagination -->
           <div class="d-flex justify-content-center mt-5">
-            <pagination :page="pagination" @page-change="getProducts"></pagination>
+            <Pagination :page="pagination" @page-change="getProducts"></Pagination>
           </div>
           <!-- Pagination -->
         </div>
@@ -107,7 +107,7 @@
         <div class="col">
           <div class="d-flex mx-3" style="width:10%">
             <i class="bi bi-instagram pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none"
+            <a href="#" class="text-decoration-none" @click.prevent="none"
               ><span class="align-middle text-white">Instagram</span></a
             >
           </div>
@@ -115,7 +115,7 @@
         <div class="col">
           <div class="d-flex mx-3" style="width:10%">
             <i class="bi bi-facebook pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none"
+            <a href="#" class="text-decoration-none" @click.prevent="none"
               ><span class="align-middle text-white">Facebook</span></a
             >
           </div>
@@ -123,7 +123,7 @@
         <div class="col">
           <div class="d-flex mx-3" style="width:10%">
             <i class="bi bi-twitter pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none"
+            <a href="#" class="text-decoration-none" @click.prevent="none"
               ><span class="align-middle text-white">Twitter</span></a
             >
           </div>
@@ -135,7 +135,7 @@
 </template>
 
 <script>
-import Pagination from '../components/Pagination.vue';
+import Pagination from '@/components/Pagination.vue';
 
 export default {
   components: {
