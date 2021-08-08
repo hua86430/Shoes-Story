@@ -1,5 +1,7 @@
 <template>
   <div class="modal fade my-auto" tabindex="-1" id="instockStatus" ref="instock">
+    <loading v-model:active="isLoading" />
+
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -30,7 +32,7 @@
                     type="number"
                     class="text-center"
                     min="1"
-                    v-model.trim="productObj.size[index].qty"
+                    v-model.number="productObj.size[index].qty"
                   />
                 </td>
                 <td>
@@ -67,6 +69,7 @@ export default {
         qty: 1,
       },
       qtyTemp: 0,
+      isLoading: false,
     };
   },
   methods: {
@@ -74,27 +77,30 @@ export default {
       this.productObj.size.splice(index, 1);
     },
     instockUpdate() {
+      this.isLoading = true;
+      this.productObj.qty = 0;
       this.productObj.size.forEach((item) => {
         this.productObj.qty += item.qty;
       });
       console.log(this.productObj.qty);
-      // this.$http
-      //   .put(
-      //     `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${this.productObj.id}`,
-      //     {
-      //       data: this.productObj,
-      //     },
-      //   )
-      //   .then((res) => {
-      //     if (res.data.success) {
-      //       this.$swal(`${res.data.message}`);
-      //       this.$emit('cartCheckModal');
-      //       this.modal.hide();
-      //     }
-      //   })
-      //   .catch((res) => {
-      //     console.log(res.data);
-      //   });
+      this.$http
+        .put(
+          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${this.productObj.id}`,
+          {
+            data: this.productObj,
+          },
+        )
+        .then((res) => {
+          if (res.data.success) {
+            this.isLoading = false;
+            this.$swal(`${res.data.message}`);
+            this.$emit('cartCheckModal');
+            this.modal.hide();
+          }
+        })
+        .catch((res) => {
+          console.log(res.data);
+        });
     },
   },
   mounted() {

@@ -4,7 +4,7 @@
       class="position-absolute"
       style="top:0; bottom:0; left:0; right:0;
       background-image: url(https://images.unsplash.com/photo-1606471192041-f58c3cfca17a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80);
-      background-position:right; opacity: 0.2; pointer-events: none"
+      background-position:right; opacity: 0.1; pointer-events: none"
     ></div>
 
     <div class="container d-flex flex-column" style="min-height: 100vh;">
@@ -14,11 +14,17 @@
           <p class="text-muted mb-0">
             如同手錶一般，每雙鞋款都有不同的表態<br />可以隨便選，但不能隨便穿
           </p>
+
+          <router-link to="/products" class="nav-link" aria-current="page"
+            ><button type="button" class="btn btn-outline-secondary mt-3 px-5">
+              立即選購
+            </button></router-link
+          >
         </div>
         <button
           type="button"
           class="btn position-absolute"
-          style="bottom:50px;max-width:10%;"
+          style="bottom:50px;max-width:20%;"
           @click="scroll"
         >
           <p
@@ -28,7 +34,7 @@
             Scroll Down<br /><i
               class="bi bi-chevron-double-down animate__fadeInDown
               animate__animated animate__infinite"
-              style="font-size:5px"
+              style="font-size:20px"
             ></i>
           </p>
         </button>
@@ -40,9 +46,9 @@
   <div class="position-relative" style="max-width:100%" id="main">
     <div id="bg" class="position-absolute" style="top:0; bottom:0; left:0; right:0;"></div>
     <div class="container">
-      <div class="row justify-content-end align-items-center">
+      <div class="row justify-content-end align-items-center mb-5">
         <div class="col-md-5 mt-5 mb-3" data-aos="fade-right" data-aos-delay="100">
-          <img style="max-width:90%" src="../assets/picture/idea.jpeg" alt="idea" />
+          <img style="max-width:90%" src="@/assets/picture/idea.jpeg" alt="idea" />
         </div>
         <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
           <h2 class="mb-3">品牌理念</h2>
@@ -52,9 +58,9 @@
           >
         </div>
       </div>
-      <div class="row justify-content-start align-items-center">
+      <div class="row justify-content-start align-items-center my-5">
         <div class="col-md-5 order-md-last  mt-5 mb-3" data-aos="fade-left" data-aos-delay="200">
-          <img style="max-width:90%" src="../assets/picture/choose-us.jpeg" alt="choose-us" />
+          <img style="max-width:90%" src="@/assets/picture/choose-us.jpeg" alt="choose-us" />
         </div>
         <div class="col-md-6 order-md-first" data-aos="fade-left" data-aos-delay="200">
           <h2 class="mb-3">為何選擇我們？</h2>
@@ -63,11 +69,15 @@
           >
         </div>
       </div>
-      <div class="row justify-content-end align-items-center mt-5">
-        <div class="col-md-5 mt-5 mb-3" data-aos="fade-right" data-aos-delay="300">
-          <img style="max-width:90%" src="../assets/picture/after-sale.jpeg" alt="after-sale" />
+      <div
+        class="row justify-content-end align-items-center my-5"
+        data-aos="fade-right"
+        data-aos-delay="300"
+      >
+        <div class="col-md-5 mt-5 mb-3">
+          <img style="max-width:90%" src="@/assets/picture/after-sale.jpeg" alt="after-sale" />
         </div>
-        <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
+        <div class="col-md-6">
           <h2 class="mb-3">最完善的售後服務</h2>
           <span
             >只要在本店購買的鞋款，不管有任何問題，<br />如：外觀瑕疵、尺寸不符...，等相關問題都可以尋求我們為您協助處理相關事宜，<br />且每雙鞋款擁有七天鑑賞期，
@@ -75,11 +85,11 @@
           >
         </div>
       </div>
-      <div class="row justify-content-start align-items-center">
+      <div class="row justify-content-start align-items-center my-5">
         <div class="col-md-5 order-md-last my-5" data-aos="fade-left" data-aos-delay="300">
-          <img style="max-width:90%" src="../assets/picture/pay_methods.jpeg" alt="pay_methods" />
+          <img style="max-width:90%" src="@/assets/picture/pay_methods.jpeg" alt="pay_methods" />
         </div>
-        <div class="col-md-6 order-md-first" data-aos="fade-left" data-aos-delay="300">
+        <div class="col-md-6 order-md-first mb-5" data-aos="fade-left" data-aos-delay="300">
           <h2 class="mb-3">多元化付款方式</h2>
           <span
             >網路逐漸成長，付款方式也跟著進步，我們也不例外。<br />本店提供了 Apple Pay , Line Pay ,
@@ -176,41 +186,12 @@
       </div>
     </div>
   </div>
-
-  <footer class="bg-dark py-3">
-    <div class="container d-flex justify-content-center">
-      <div class="row mb-3">
-        <div class="col">
-          <div class="d-flex mx-3" style="width:10%">
-            <i class="bi bi-instagram pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none"
-              ><span class="align-middle text-white">Instagram</span></a
-            >
-          </div>
-        </div>
-        <div class="col">
-          <div class="d-flex mx-3" style="width:10%">
-            <i class="bi bi-facebook pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none"
-              ><span class="align-middle text-white">Facebook</span></a
-            >
-          </div>
-        </div>
-        <div class="col">
-          <div class="d-flex mx-3" style="width:10%">
-            <i class="bi bi-twitter pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none"
-              ><span class="align-middle text-white">Twitter</span></a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <span class="text-white">Copyright © 1999-2021 鞋頭物語 All rights reserved.</span>
-  </footer>
+  <Footer />
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue';
+
 export default {
   methods: {
     scroll() {
@@ -219,6 +200,7 @@ export default {
       window.scrollTo({ top: main.offsetTop - navbarTop.offsetHeight + 1, behavior: 'smooth' });
     },
   },
+  components: { Footer },
 };
 </script>
 

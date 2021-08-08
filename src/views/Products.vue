@@ -7,15 +7,15 @@
     >
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <router-link class="text-decoration-none" to="/">Home</router-link>
+          <router-link class="text-decoration-none" to="/">首頁</router-link>
         </li>
 
         <li class="breadcrumb-item active" aria-current="page">
-          Products
+          產品總覽
         </li>
       </ol>
     </nav>
-    <h1 class="mt-3 mb-5 border-bottom pb-3 text-start">Product overview</h1>
+    <h1 class="mt-3 mb-5 border-bottom pb-3 text-start">產品總覽</h1>
   </div>
   <div class="container">
     <div class="row">
@@ -70,25 +70,15 @@
         <div class="row">
           <div class="col-md-4 mb-3" v-for="item in products" :key="item.id">
             <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{ item.title }}</h5>
+              <router-link :to="`/product/${item.id}`" class="text-decoration-none">
                 <div class="card-body">
-                  <img class="w-100" :src="item.imageUrl" alt="{{item.id}}" />
-                  <h3 class="mt-3">售價：{{ item.price.toLocaleString() }}</h3>
+                  <h5 class="card-title text-dark">{{ item.title }}</h5>
+                  <div class="card-body p-0">
+                    <img class="w-100" :src="item.imageUrl" alt="{{item.id}}" />
+                    <h3 class="mt-4 text-secondary">售價：{{ item.price.toLocaleString() }}</h3>
+                  </div>
                 </div>
-
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <router-link :to="`/product/${item.id}`"
-                    ><button type="button" class="btn btn-outline-secondary px-5">
-                      產品介紹
-                    </button></router-link
-                  >
-
-                  <button type="button" class="btn btn-outline-secondary px-5">
-                    加入購物車
-                  </button>
-                </div>
-              </div>
+              </router-link>
             </div>
           </div>
           <!-- Products -->
@@ -101,45 +91,17 @@
       </div>
     </div>
   </div>
-  <footer class="bg-dark py-3 mt-3">
-    <div class="container d-flex justify-content-center">
-      <div class="row mb-3">
-        <div class="col">
-          <div class="d-flex mx-3" style="width:10%">
-            <i class="bi bi-instagram pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none" @click.prevent="none"
-              ><span class="align-middle text-white">Instagram</span></a
-            >
-          </div>
-        </div>
-        <div class="col">
-          <div class="d-flex mx-3" style="width:10%">
-            <i class="bi bi-facebook pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none" @click.prevent="none"
-              ><span class="align-middle text-white">Facebook</span></a
-            >
-          </div>
-        </div>
-        <div class="col">
-          <div class="d-flex mx-3" style="width:10%">
-            <i class="bi bi-twitter pe-2" style="font-size:1.5em; color:white"></i>
-            <a href="#" class="text-decoration-none" @click.prevent="none"
-              ><span class="align-middle text-white">Twitter</span></a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <span class="text-white">Copyright © 1999-2021 鞋頭物語 All rights reserved.</span>
-  </footer>
+  <Footer />
 </template>
 
 <script>
 import Pagination from '@/components/Pagination.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   components: {
     Pagination,
+    Footer,
   },
   data() {
     return {
@@ -191,6 +153,13 @@ export default {
   border-radius: 0;
 }
 .card {
-  box-shadow: 3px 3px 2px rgba(44, 31, 31, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.8s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.8s box-shadow,
+    0.8s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 </style>

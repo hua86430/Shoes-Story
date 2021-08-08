@@ -109,6 +109,7 @@ export default {
         this.$refs.modal.productObj = {
           imagesUrl: [],
           size: [],
+          introduce: [],
           ...item,
         };
         this.$refs.modal.buttomStatus = '編輯';
@@ -117,6 +118,7 @@ export default {
         this.$refs.modal.productObj = {
           imagesUrl: [],
           size: [],
+          introduce: [''],
         };
         this.$refs.modal.productObj.size.push({});
         this.$refs.modal.buttomStatus = '新增';

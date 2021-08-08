@@ -148,6 +148,36 @@
               <table class="table mt-3">
                 <thead class="align-middle">
                   <tr>
+                    <th colspan="2">產品介紹</th>
+                    <th width="15%" scope="col">
+                      <button @click="addIntroduce" type="button" class="btn btn-sm btn-secondary">
+                        新增介紹
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="align-middle">
+                  <tr v-for="(item, index) in productObj.introduce" :key="index">
+                    <td colspan="2">
+                      <input
+                        type="text"
+                        style="width:100%"
+                        class="text-center"
+                        v-model.trim="productObj.introduce[index]"
+                      />
+                    </td>
+                    <td>
+                      <button type="button" class="btn" @click="delIntroduce(index)">
+                        <i class="bi bi-trash-fill"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table mt-3">
+                <thead class="align-middle">
+                  <tr>
                     <th scope="col">尺寸</th>
                     <th scope="col">數量</th>
                     <th width="15%" scope="col">
@@ -221,11 +251,25 @@ export default {
       productObj: {
         imagesUrl: [],
         size: [],
+        introduce: [],
       },
       buttomStatus: '',
     };
   },
   methods: {
+    delIntroduce(index) {
+      this.productObj.introduce.splice(index, 1);
+    },
+    addIntroduce() {
+      if (this.productObj.introduce.length === 0) {
+        this.productObj.introduce.push('');
+      }
+      if (
+        Object.keys(this.productObj.introduce[this.productObj.introduce.length - 1]).length !== 0
+      ) {
+        this.productObj.introduce.push('');
+      }
+    },
     delSize(index) {
       this.productObj.size.splice(index, 1);
     },
