@@ -67,7 +67,7 @@
               ></textarea>
             </div>
             <div class="text-end">
-              <button type="submit" class="btn btn-danger">送出訂單</button>
+              <button type="submit" class="btn btn-secondary">送出訂單</button>
             </div>
           </Form>
           <!-- <h3 class="text-center mb-3">
