@@ -28,7 +28,7 @@
         <div tabindex="0" style="overflow-y: scroll; height:80vh">
           <p>{{ product.content }}</p>
           <div v-for="item in product.imagesUrl" :key="item.id">
-            <img class="w-100 mb-5" :src="item" alt="" />
+            <img class="w-100 mb-5" :src="item" :alt="product.title" />
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="col-lg-3">
         <div class="card mt-5 border-0 border-start">
           <div class="card-body">
-            <img :src="product.imageUrl" class="card-img-top" alt="..." />
+            <img :src="product.imageUrl" class="card-img-top" :alt="product.title" />
 
             <h6 class="text-muted fw-lighter mt-1">商品編號：{{ product.id }}</h6>
             <h2>{{ product.title }}</h2>

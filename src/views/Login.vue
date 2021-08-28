@@ -18,7 +18,7 @@
               placeholder="請輸入 Email"
               v-model="user.username"
             ></Field>
-            <error-message name="信箱" class="invalid-feedback"></error-message>
+            <ErrorMessage name="信箱" class="invalid-feedback"></ErrorMessage>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -32,7 +32,7 @@
               v-model="user.password"
               placeholder="請輸入 Email"
             ></Field>
-            <error-message name="密碼" class="invalid-feedback"></error-message>
+            <ErrorMessage name="密碼" class="invalid-feedback"></ErrorMessage>
           </div>
           <button
             class="btn btn-lg btn-primary w-100 mt-3"

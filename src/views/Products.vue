@@ -124,7 +124,7 @@ export default {
           }
         });
     },
-    categoryFilter(c) {
+    categoryFilter(catagory) {
       this.products = [];
       this.isLoading = true;
 
@@ -133,8 +133,8 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.isLoading = false;
-            if (c !== 'all') {
-              this.products = res.data.products.filter((item) => item.category === c);
+            if (catagory !== 'all') {
+              this.products = res.data.products.filter((item) => item.category === catagory);
             } else {
               this.products = res.data.products;
             }

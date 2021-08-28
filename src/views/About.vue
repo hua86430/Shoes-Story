@@ -50,12 +50,10 @@
                 type="number"
                 :rules="isPhone"
                 class="form-control"
-                :class="{ 'is-invalid': errors['電話'] }"
                 placeholder="請輸入電話"
               ></Field>
               <error-message name="電話" class="invalid-feedback"></error-message>
             </div>
-
             <div class="mb-3">
               <label for="message" class="form-label fs-4">留言</label>
               <textarea

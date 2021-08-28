@@ -42,9 +42,9 @@
                   </button>
                 </td>
                 <td>
-                  <router-link :to="`/product/${item.product_id}`"
-                    ><a href="#"
-                      ><img :src="item.product.imageUrl" class="w-100" alt="" />
+                  <router-link class="text-decoration-none" :to="`/product/${item.product_id}`"
+                    ><a class="text-decoration-none" href="#"
+                      ><img :src="item.product.imageUrl" class="w-100" :alt="item.product.title" />
                       {{ item.product.title }}</a
                     ></router-link
                   >
@@ -89,7 +89,7 @@
               placeholder="請輸入 Email"
               v-model="order.user.email"
             ></Field>
-            <error-message name="信箱" class="invalid-feedback"></error-message>
+            <ErrorMessage name="信箱" class="invalid-feedback"></ErrorMessage>
           </div>
           <div class="mb-3">
             <label for="name" class="form-label">收件人姓名</label>
@@ -103,7 +103,7 @@
               rules="required"
               v-model="order.user.name"
             ></Field>
-            <error-message name="姓名" class="invalid-feedback"></error-message>
+            <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
           </div>
           <div class="mb-3">
             <label for="tel" class="form-label">收件人電話</label>
@@ -117,7 +117,7 @@
               placeholder="請輸入電話"
               v-model="order.user.tel"
             ></Field>
-            <error-message name="電話" class="invalid-feedback"></error-message>
+            <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
           </div>
           <div class="mb-3">
             <label for="address" class="form-label">收件人地址</label>
@@ -131,7 +131,7 @@
               rules="required"
               v-model="order.user.address"
             ></Field>
-            <error-message name="地址" class="invalid-feedback"></error-message>
+            <ErrorMessage name="地址" class="invalid-feedback"></ErrorMessage>
           </div>
           <div class="mb-3">
             <label for="message" class="form-label">留言</label>
