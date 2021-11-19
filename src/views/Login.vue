@@ -21,7 +21,7 @@
             <ErrorMessage name="信箱" class="invalid-feedback"></ErrorMessage>
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">Password</label>
             <Field
               id="password"
               name="密碼"
@@ -30,7 +30,7 @@
               class="form-control"
               :class="{ 'is-invalid': errors['密碼'] }"
               v-model="user.password"
-              placeholder="請輸入 Email"
+              placeholder="請輸入 密碼"
             ></Field>
             <ErrorMessage name="密碼" class="invalid-feedback"></ErrorMessage>
           </div>
