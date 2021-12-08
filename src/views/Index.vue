@@ -108,7 +108,9 @@ export default {
         .get(url)
         .then((res) => {
           this.carts = res.data.data.carts.length;
-          this.isEmpty = true
+         if(this.carts ===0){
+            this.isEmpty = true
+         }
         })
         .catch((res) => {
           console.log(res.data);
