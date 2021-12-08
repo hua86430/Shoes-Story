@@ -56,6 +56,12 @@
                 {{ carts }}
               </p>
               <p
+                v-else-if="isEmpty"
+                class="position-absolute"
+               
+              >
+              
+              </p> <p
                 v-else
                 class="position-absolute"
                 style="top:0px;right:6px;min-width:15px; background-color:gray;
@@ -79,6 +85,7 @@ export default {
     return {
       loginCheck: false,
       carts: [],
+      isEmpty :false,
       screenWidth: '',
       is_response: false,
     };
@@ -101,6 +108,7 @@ export default {
         .get(url)
         .then((res) => {
           this.carts = res.data.data.carts.length;
+          this.isEmpty = true
         })
         .catch((res) => {
           console.log(res.data);
