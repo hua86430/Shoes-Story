@@ -65,46 +65,9 @@
               ></textarea>
             </div>
             <div class="text-end">
-              <button type="submit" class="btn btn-secondary">送出訂單</button>
+              <button type="submit" class="btn btn-secondary">送出問題</button>
             </div>
           </Form>
-          <!-- <h3 class="text-center mb-3">
-            Contact us
-          </h3>
-          <label for="Username" class="form-label fs-5">姓名</label>
-          <div class="input-group mb-3 justify-content-center">
-            <input
-              id="Username"
-              type="text"
-              class="form-control text-center"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              style="max-width:50%"
-            />
-          </div>
-          <label for="Usermail" class="form-label fs-5">聯絡信箱</label>
-          <div class="input-group mb-3 justify-content-center">
-            <input
-              id="Usermail"
-              type="text"
-              class="form-control text-center"
-              aria-label="Usermail"
-              aria-describedby="basic-addon2"
-              style="max-width:50%"
-            />
-          </div>
-          <label for="Userproblem" class="form-label fs-5">問題</label>
-          <div class="input-group mb-3 justify-content-center">
-            <input
-              id="Userproblem"
-              type="text"
-              class="form-control text-center"
-              aria-label="Userproblem"
-              aria-describedby="basic-addon3"
-              style="max-width:50%; height:100px"
-            />
-          </div>
-          <button type="button" class="btn btn-secondary w-50">送出</button> -->
         </div>
       </div>
     </div>
@@ -126,7 +89,10 @@ export default {
     },
     onSubmit() {
       this.$swal('成功送出，我們會盡快回覆！');
-      this.$refs.form.resetForm();
+      // this.$refs.form.resetForm();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     },
   },
 };
