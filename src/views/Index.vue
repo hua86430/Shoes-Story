@@ -50,7 +50,7 @@
               <p
                 v-if="is_response"
                 class="position-absolute"
-                style="top:0px;right:45%;min-width:15px; background-color:gray;
+                style="top:0px;right:45%;width:20px; background-color:gray;
                 color:white; border-radius:50%;padding:1.5px"
               >
                 {{ carts }}
@@ -59,7 +59,7 @@
               <p
                 v-else
                 class="position-absolute"
-                style="top:0px;right:6px;min-width:15px; background-color:gray;
+                style="top:0px;right:6px;width:20px; background-color:gray;
                 color:white; border-radius:50%;padding:1.5px"
               >
                 {{ carts }}
