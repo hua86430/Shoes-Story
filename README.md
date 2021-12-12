@@ -1,25 +1,31 @@
-# finalwork
+# Vue 電商網站：Shoes Story
 
-## Project setup
-```
-npm install
-```
+## 主要技術
+* JaveScript
+* Axios
+* Bootstrap 5
+* Vue 3
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 網站介紹
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### 前台
+* 首頁
+  * 簡潔介面不過於雜亂，使用 AOS 動畫使特色介紹更為顯眼。
+* 產品列表
+  * 商品視覺化，使客戶一眼就能認出心目中的商品。
+  * 清楚分類，避免還要一個個自己去找。
+* 產品介紹
+  * 將選購欄固定於右側，方便客戶觀看到後面可以直接選購加入購物車。
+* 關於我們
+  * 若客戶有任何建議與回饋可以立即送出，加強網站使用體驗。
+* 購物車
+  * 具有修改尺寸及數量功能，使客戶不必刪除後還要回到產品頁面重複加入購物車的動作。
+  * 購物車為空時提醒客戶可以至產品列表選購商品。
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# week8
+
+### 後台
+* 庫存管理
+  * 具備新增、修改、刪除產品功能，並將庫存管理功能獨立出來，避免單一視窗過度混亂。
+* 訂單管理
+  * 快速管理客戶訂單，可針對單一客戶進行訂單修改，避免客戶若有修改的要求還要重新下單。
